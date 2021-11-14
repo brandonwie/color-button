@@ -3,26 +3,30 @@ import './App.css';
 
 function App() {
   const [buttonColor, setButtonColor] = useState('red');
-  const [isChecked, setIsChecked] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
-  const handleClick = () => setButtonColor(newButtonColor);
-  const handleChange = () => setIsChecked(!isChecked);
 
   return (
     <div>
+      <pre>{JSON.stringify(buttonColor, null, 2)}</pre>
       <button
-        style={{ backgroundColor: buttonColor, color: 'white' }}
-        onClick={handleClick}
-        disabled={isChecked}
+        style={{
+          backgroundColor: isDisabled ? 'gray' : buttonColor,
+        }}
+        onClick={() => setButtonColor(newButtonColor)}
+        disabled={isDisabled}
       >
         Change to {newButtonColor}
       </button>
+      <br />
       <input
         type='checkbox'
+        id='disable-button-checkbox'
         defaultChecked={false}
-        aria-checked={isChecked}
-        onChange={handleChange}
+        aria-checked={isDisabled}
+        onChange={() => setIsDisabled(!isDisabled)}
       />
+      <label htmlFor='disable-button-checkbox'>Disable Button</label>
     </div>
   );
 }
