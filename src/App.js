@@ -1,5 +1,10 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 import './App.css';
+
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
+}
 
 function App() {
   const [buttonColor, setButtonColor] = useState('red');
@@ -7,7 +12,7 @@ function App() {
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
 
   return (
-    <div>
+    <MainDiv>
       <pre>{JSON.stringify(buttonColor, null, 2)}</pre>
       <button
         style={{
@@ -27,8 +32,15 @@ function App() {
         onChange={() => setIsDisabled(!isDisabled)}
       />
       <label htmlFor='disable-button-checkbox'>Disable Button</label>
-    </div>
+    </MainDiv>
   );
 }
 
 export default App;
+
+const MainDiv = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
