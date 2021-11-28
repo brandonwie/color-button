@@ -40,3 +40,5 @@ most importantly, a big take from here will be about ARIA(Accessible Rich Intern
 3. `getByRole` option `{ name: }`
 4. `Jest` describe to group tests
 5. Unit testing functions - a function in a component is too complicated so you don't want to render it multiple times (theoratically)
+
+## ESLint for Testing Library and Jest-DOM

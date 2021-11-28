@@ -26,7 +26,7 @@ test('button turns midnightblue when clicked', () => {
     backgroundColor: 'MidnightBlue',
   });
 
-  expect(button.textContent).toBe('Change to Medium Violet Red');
+  expect(button).toHaveTextContent('Change to Medium Violet Red');
 });
 
 test('initial conditions', () => {
@@ -35,7 +35,7 @@ test('initial conditions', () => {
   const button = screen.getByRole('button', {
     name: /change to midnight blue/i,
   });
-  expect(button).toBeEnabled();
+  expect(button).toBeDisabled();
 
   // check that the checkbox start out unchecked
   const checkbox = screen.getByRole('checkbox');
